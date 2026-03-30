@@ -1,0 +1,199 @@
+@mixin primaryStyle {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.mainDivStyle {
+  width: 30%;
+  height: 300px;
+  border-radius: 10px;
+  margin-inline: auto;
+  background-color: #ffffcc;
+  border: 5px dotted;
+  border-left-color: black;
+  color: gray;  
+  overflow: auto;
+}
+.new { 
+  transform: rotateY(180deg);
+}
+body {
+  @include primaryStyle;
+  
+  * {
+    @include primaryStyle;  
+  }
+  
+  .hamburger-menu {
+    display: none;
+    background: black;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    .fa-bars {
+      display: block;  
+    }
+    
+    .fa-xmark {
+      display: none;  
+    }
+    
+    &.opened {
+      
+      .fa-bars {
+        display: none;  
+      }
+      
+      .fa-xmark {
+        display: block;  
+      } 
+    }
+    @media only screen and (max-width: 767px) {
+      display: block;
+      background: black;
+      color: white;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2em;
+    }         
+  }
+  
+  h4 {
+    color: white;
+    text-shadow: 0 0 5px black;
+    display: none;
+    
+    @media only screen and (max-width: 767px) {
+      display: block;
+    }
+  }
+  
+  ul {
+    display: none;
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    list-style-type: none;
+    border-left: 2px solid dodgerblue;
+    border-right: 2px solid dodgerblue;
+
+    li { 
+      display: block;
+      
+      a {
+        display: inline-block;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-shadow: 0 0 5px black;
+        color: dodgerblue;
+        font-weight: bold;
+      }
+    }  
+  }
+  
+  #cv {   
+    @extend .mainDivStyle;
+    margin-top: calc(100vh/2 - 150px);
+    transform-origin: 0 150px;
+    transition: transform 5s ease-in;
+    background-color: #F7F2EF;
+    
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
+ 
+    button {
+      color: white;
+      width: 100%;
+      font-weight: bold;
+      font-size: 4rem;
+      background: rgb(34,193,195);
+      background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(221,29,120,1) 100%);
+      text-transform: uppercase;
+      padding: 20px;
+      
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  
+  #content {
+    @extend .mainDivStyle;
+    position: relative;
+    top: -300px;
+    
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
+    
+    h5 {
+      position: relative;
+      text-transform: uppercase;
+      padding: 1em;
+      
+      .fa-refresh {
+        position: absolute;
+        right: 10px;
+        
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+      
+    p {
+      padding-left: 10px;
+      margin: 0;
+        
+      a {
+        display: inline-block;
+        width: 90%;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-shadow: 0 0 15px black;
+        color: dodgerblue;
+        font-weight: bold;
+        transition: all .5s;
+        
+        &:hover {
+          background-color: black;
+          color: white;
+        }
+        
+        &#beleske {
+          color: gray;
+        }
+      }
+        
+      i {
+        display: inline-block;
+        color: red;
+        position: absolute;
+        right: 10px;
+        font-size: 1.5em;
+        cursor: pointer;
+        
+        &:hover {
+          background: black;
+        }
+      }
+    }
+    
+    button {
+      font-weight: bold;
+      text-transform: uppercase; 
+      margin-top: 10px;
+      display: block;
+      margin: auto;
+      
+      &:focus {
+        outline: none;
+      }
+    }    
+  }
+}
