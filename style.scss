@@ -3,20 +3,20 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .mainDivStyle {
-  width: 30%;
-  height: 300px;
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
   margin-inline: auto;
-  background-color: #ffffcc;
   border: 5px dotted;
-  border-left-color: black;
-  color: gray;  
+  border-left-color: black;  
   overflow: auto;
 }
-.new { 
-  transform: rotateY(180deg);
-}
+
 body {
   @include primaryStyle;
   
@@ -24,176 +24,279 @@ body {
     @include primaryStyle;  
   }
   
-  .hamburger-menu {
-    display: none;
-    background: black;
-    color: white;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2em;
-    .fa-bars {
-      display: block;  
-    }
+  .container-fluid {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
     
-    .fa-xmark {
-      display: none;  
-    }
-    
-    &.opened {
+    .book {
+      width: 30%;
+      height: 300px;
+      position: relative;     
       
-      .fa-bars {
-        display: none;  
+      @media only screen and (max-width: 767px) {
+        width: 100%;
+        height: 100vh;
       }
       
-      .fa-xmark {
-        display: block;  
-      } 
-    }
-    @media only screen and (max-width: 767px) {
-      display: block;
-      background: black;
-      color: white;
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2em;
-    }         
-  }
-  
-  h4 {
-    color: white;
-    text-shadow: 0 0 5px black;
-    display: none;
-    
-    @media only screen and (max-width: 767px) {
-      display: block;
-    }
-  }
-  
-  ul {
-    display: none;
-    padding: 1em;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-    list-style-type: none;
-    border-left: 2px solid dodgerblue;
-    border-right: 2px solid dodgerblue;
-
-    li { 
-      display: block;
-      
-      a {
-        display: inline-block;
-        text-transform: uppercase;
-        text-decoration: none;
-        text-shadow: 0 0 5px black;
-        color: dodgerblue;
-        font-weight: bold;
-      }
-    }  
-  }
-  
-  #cv {   
-    @extend .mainDivStyle;
-    margin-top: calc(100vh/2 - 150px);
-    transform-origin: 0 150px;
-    transition: transform 5s ease-in;
-    background-color: #F7F2EF;
-    
-    @media only screen and (max-width: 767px) {
-      display: none;
-    }
- 
-    button {
-      color: white;
-      width: 100%;
-      font-weight: bold;
-      font-size: 4rem;
-      background: rgb(34,193,195);
-      background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(221,29,120,1) 100%);
-      text-transform: uppercase;
-      padding: 20px;
-      
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-  
-  #content {
-    @extend .mainDivStyle;
-    position: relative;
-    top: -300px;
-    
-    @media only screen and (max-width: 767px) {
-      display: none;
-    }
-    
-    h5 {
-      position: relative;
-      text-transform: uppercase;
-      padding: 1em;
-      
-      .fa-refresh {
-        position: absolute;
-        right: 10px;
+      #cv {   
+        @extend .mainDivStyle;
+        transform-origin: left center;
+        box-shadow: 0 15px 40px rgba(0,0,0,.3);
+        background-color: rgba(123, 63, 74, .9);
+        color: white;
+        font-family: "Poppins", sans-serif; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: transform 5s linear;
         
-        &:hover {
+        @media only screen and (max-width: 767px) {
+          display: none;
+        }
+  
+        h1 {
+          font-family: "Mystery Quest", cursive;
+          font-size: 2.2rem;
+          margin-bottom: 25px;
+        }
+    
+        &:hover {       
           cursor: pointer;
         }
-      }
-    }
-      
-    p {
-      padding-left: 10px;
-      margin: 0;
         
-      a {
-        display: inline-block;
-        width: 90%;
-        text-transform: uppercase;
-        text-decoration: none;
-        text-shadow: 0 0 15px black;
-        color: dodgerblue;
-        font-weight: bold;
-        transition: all .5s;
-        
-        &:hover {
-          background-color: black;
-          color: white;
+        &.new {
+          transform: rotateY(180deg);  
         }
-        
-        &#beleske {
-          color: gray;
-        }
-      }
-        
-      i {
-        display: inline-block;
-        color: red;
-        position: absolute;
-        right: 10px;
-        font-size: 1.5em;
-        cursor: pointer;
-        
-        &:hover {
-          background: black;
-        }
-      }
-    }
     
-    button {
-      font-weight: bold;
-      text-transform: uppercase; 
-      margin-top: 10px;
-      display: block;
-      margin: auto;
-      
-      &:focus {
-        outline: none;
+        h2 {
+          font-size: 1.5rem;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+
+        p {
+          font-size: 0.95rem;
+          font-weight: 400;
+        }
+
+        p:last-child {
+          font-size: 0.8rem;
+          font-weight: 500;
+          letter-spacing: 1px;
+        }     
       }
-    }    
+  
+      #content {
+        @extend .mainDivStyle;
+        background-color: #F5EFE6;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+        font-family: "Poppins", sans-serif;
+        border: 1px solid rgba(123, 63, 74, .25);
+    
+        h5 {
+          position: relative;
+          text-transform: uppercase;
+          padding: 1em;
+          font-weight: 600;
+          letter-spacing: 1px;
+          color: #7B3F4A;
+      
+          .fa-refresh {
+            position: absolute;
+            right: 10px;
+            color: #7B3F4A;
+            cursor: pointer;
+            font-size: 1em;
+            
+            @media only screen and (max-width: 767px) {
+              display: none;
+            }
+          }
+      
+          &::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 2px;
+            margin: 8px auto 15px;
+            background-color: #7B3F4A;
+          }
+        }
+      
+        p {
+          padding: 4px 10px;
+          margin: 0;      
+          
+          a {
+            display: inline-block;
+            position: relative;
+            padding-left: 24px;
+            width: 90%;
+            text-decoration: none;
+            color: #7B3F4A;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background-color .5s ease, color .5s ease, transform .5s ease;
+        
+            &:hover {
+              background-color: #7B3F4A;
+              color: white;
+              border-radius: 4px;
+              transform: translateY(-2px);
+            }
+        
+            &::before {
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              font-size: 0.8rem;
+              font-family: "Font Awesome 6 Free";
+              font-weight: 900;
+            }          
+          }
+          
+          &.introduction a::before {
+            content: "\f5d2";
+          }
+          
+          &.shopping a::before {
+            content: "\f07a";
+          }
+          
+          &.pricing a::before {
+            content: "\f02b";
+          }
+          
+          &.js-shop a::before {
+            content: "\f290";
+          }   
+          
+          &.survey a::before {
+            content: "\f46d";
+          }
+          
+          &.create-form a::before {
+            content: "\f65d";
+          }
+          
+          &.restaurant a::before {
+            content: "\f2e7";
+          }
+          
+          &.tribute a::before {
+            content: "\f559";
+          }
+          
+          &.drum-machine a::before {
+            content: "\f569";
+          }
+          
+          &.todo a::before {
+            content: "\f0ae";
+          }
+          
+          &.currency a::before {
+            content: "\e0d8";
+          }
+          
+          &.landing-page a::before {
+            content: "\f2d0";
+          }
+          
+          &.reading a::before {
+            content: "\f518";
+          }
+          
+          &.calculator a::before {
+            content: "\f1ec";
+          }
+          
+          &.timer a::before {
+            content: "\f017";
+          }
+          
+          &.quote a::before {
+            content: "\f10d";
+          }
+          
+          &.weather a::before {
+            content: "\f6c4";
+          }
+          
+          &.gallery a::before {
+            content: "\f302";
+          }
+          
+          &.inflation a::before {
+            content: "\f201";
+          }
+          
+          &.animations a::before {
+            content: "\e2ca";
+          }
+          
+          &.portfolio a::before {
+            content: "\f0b1";
+          }
+          
+          &.notes a::before {
+            content: "\f249";
+          }
+      
+          i {
+            display: inline-block;
+            color: #7B3F4A;
+            position: absolute;
+            right: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform .3s ease, color .3s ease;
+            
+            @media only screen and (max-width: 768px) {
+              display: none;
+            }
+        
+            &:hover {
+              color: #63313B;
+              transform: scale(1.15);         
+            }
+          }
+        }
+    
+        button {
+          font-weight: 500;
+          text-transform: uppercase;
+          margin-top: 15px;
+          margin-bottom: 10px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          background-color: #7B3F4A;
+          border: none;
+          border-radius: 4px;
+          padding: 6px 20px;
+          font-size: 0.85rem;
+          transition: background-color .3s ease, transform .3s ease;
+          
+          @media only screen and (max-width: 767px) {
+            display: none;
+          }
+
+          &:hover {
+            background-color: #63313B;
+            transform: translateY(-2px);
+          }
+
+          &:focus {
+            outline: none;
+          }  
+        }
+      }
+    }
   }
 }

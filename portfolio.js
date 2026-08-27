@@ -1,57 +1,58 @@
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
   
-  const content_p = document.querySelectorAll("#content p");
+  let canOpen = true;
   
-  $("#cv").fadeIn();
-  $("#content").fadeOut();
-    
-  $("#content .fa-refresh").hover(
-    function() {
-      $(this).addClass("fa-spin");    
-    }, 
-    function() {
-      $(this).removeClass("fa-spin");
-    }                                     
-  );
-  
-  $("#content .fa-refresh").click(() => {
-    content_p.forEach((val) => {
-      val.style.display = "block";
-    });                                   
-  });
-    
-  $("#content p").append('<i class="fa fa-close"></i>');
-  
-  $("i").click(function() {
-    const closestP = $(this).closest("p");
-    closestP.css("display", "none");
-  });
-  
-  $("h4 i").click(() => {
-    $("#content p").show();
-  });
- 
-  $("#open").click(() => {
-    $("#cv").fadeIn();
-    $("#cv").addClass("new");
-    $("#content").fadeIn(5000);
-  }); 
-
-  $("#close").click(() => {
-    $("#content").fadeOut(5000);
-    $("#cv").removeClass("new", 5000);
-    $("#cv").fadeIn();
-  });
-  
-  $(".hamburger-menu").click(function(e) {
-    e.preventDefault();
-   
-    if ($(this).hasClass("opened")) {
-      $("ul").slideUp(2000);
-    } else {
-      $("h4").show();
-      $("ul").slideDown(2000);  
+  const cv = document.querySelector("#cv");
+  cv.addEventListener("mouseenter", function() {
+    if (canOpen) {
+      this.classList.add("new"); 
     }
-    $(this).toggleClass("opened");
   });
+  
+  const contentP = document.querySelectorAll("#content p");
+  
+  const refresh = document.querySelector("#content .fa-refresh");
+  refresh.addEventListener("mouseenter", function() {
+    this.classList.add("fa-spin");  
+  });
+  
+  refresh.addEventListener("mouseleave", function() {
+    this.classList.remove("fa-spin");  
+  });
+  
+  refresh.addEventListener("click", function() {
+    contentP.forEach(p => {
+      p.style.display = "block";
+    });
+  });
+  
+  contentP.forEach(p => {   
+    const closeIcon = document.createElement("i");
+    closeIcon.classList.add("fa-solid","fa-close");
+    p.appendChild(closeIcon);   
+  });
+  
+  document.querySelectorAll("#content p .fa-close").forEach(icon => {
+    icon.addEventListener("click", function() {
+      this.closest("p").style.display = "none";  
+    });
+  });
+  
+  document.querySelector("h5 i").addEventListener("click", () => {
+    contentP.forEach(p => {   
+      p.style.display = "block";
+    });  
+  });
+  
+  const close = document.querySelector("#close");
+  close.addEventListener("click", () => {
+    cv.classList.remove("new"); 
+    canOpen = false;
+  });
+  
+  const book = document.querySelector(".book");
+  book.addEventListener("mouseleave", () => {
+    canOpen = true;
+  });
+  
 });
