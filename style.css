@@ -1,0 +1,258 @@
+.mainDivStyle, body .container-fluid .book #content, body .container-fluid .book #cv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  margin-inline: auto;
+  border: 5px dotted;
+  border-left-color: black;
+  overflow: auto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body .container-fluid {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+}
+body .container-fluid .book {
+  width: 30%;
+  height: 300px;
+  position: relative;
+}
+@media only screen and (max-width: 767px) {
+  body .container-fluid .book {
+    width: 100%;
+    height: 100vh;
+  }
+}
+body .container-fluid .book #cv {
+  transform-origin: left center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  background-color: rgba(123, 63, 74, 0.9);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 5s linear;
+}
+@media only screen and (max-width: 767px) {
+  body .container-fluid .book #cv {
+    display: none;
+  }
+}
+body .container-fluid .book #cv h1 {
+  font-family: "Mystery Quest", cursive;
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+}
+body .container-fluid .book #cv:hover {
+  cursor: pointer;
+}
+body .container-fluid .book #cv.new {
+  transform: rotateY(180deg);
+}
+body .container-fluid .book #cv h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+body .container-fluid .book #cv p {
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+body .container-fluid .book #cv p:last-child {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+body .container-fluid .book #content {
+  background-color: #F5EFE6;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", sans-serif;
+  border: 1px solid rgba(123, 63, 74, 0.25);
+}
+body .container-fluid .book #content h5 {
+  position: relative;
+  text-transform: uppercase;
+  padding: 1em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #7B3F4A;
+}
+body .container-fluid .book #content h5 .fa-refresh {
+  position: absolute;
+  right: 10px;
+  color: #7B3F4A;
+  cursor: pointer;
+  font-size: 1em;
+}
+@media only screen and (max-width: 767px) {
+  body .container-fluid .book #content h5 .fa-refresh {
+    display: none;
+  }
+}
+body .container-fluid .book #content h5::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 8px auto 15px;
+  background-color: #7B3F4A;
+}
+body .container-fluid .book #content p {
+  padding: 4px 10px;
+  margin: 0;
+}
+body .container-fluid .book #content p a {
+  display: inline-block;
+  position: relative;
+  padding-left: 24px;
+  width: 90%;
+  text-decoration: none;
+  color: #7B3F4A;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+body .container-fluid .book #content p a:hover {
+  background-color: #7B3F4A;
+  color: white;
+  border-radius: 4px;
+  transform: translateY(-2px);
+}
+body .container-fluid .book #content p a::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+body .container-fluid .book #content p.introduction a::before {
+  content: "\f5d2";
+}
+body .container-fluid .book #content p.shopping a::before {
+  content: "\f07a";
+}
+body .container-fluid .book #content p.pricing a::before {
+  content: "\f02b";
+}
+body .container-fluid .book #content p.js-shop a::before {
+  content: "\f290";
+}
+body .container-fluid .book #content p.survey a::before {
+  content: "\f46d";
+}
+body .container-fluid .book #content p.create-form a::before {
+  content: "\f65d";
+}
+body .container-fluid .book #content p.restaurant a::before {
+  content: "\f2e7";
+}
+body .container-fluid .book #content p.tribute a::before {
+  content: "\f559";
+}
+body .container-fluid .book #content p.drum-machine a::before {
+  content: "\f569";
+}
+body .container-fluid .book #content p.todo a::before {
+  content: "\f0ae";
+}
+body .container-fluid .book #content p.currency a::before {
+  content: "\e0d8";
+}
+body .container-fluid .book #content p.landing-page a::before {
+  content: "\f2d0";
+}
+body .container-fluid .book #content p.reading a::before {
+  content: "\f518";
+}
+body .container-fluid .book #content p.calculator a::before {
+  content: "\f1ec";
+}
+body .container-fluid .book #content p.timer a::before {
+  content: "\f017";
+}
+body .container-fluid .book #content p.quote a::before {
+  content: "\f10d";
+}
+body .container-fluid .book #content p.weather a::before {
+  content: "\f6c4";
+}
+body .container-fluid .book #content p.gallery a::before {
+  content: "\f302";
+}
+body .container-fluid .book #content p.inflation a::before {
+  content: "\f201";
+}
+body .container-fluid .book #content p.animations a::before {
+  content: "\e2ca";
+}
+body .container-fluid .book #content p.portfolio a::before {
+  content: "\f0b1";
+}
+body .container-fluid .book #content p.notes a::before {
+  content: "\f249";
+}
+body .container-fluid .book #content p i {
+  display: inline-block;
+  color: #7B3F4A;
+  position: absolute;
+  right: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+@media only screen and (max-width: 768px) {
+  body .container-fluid .book #content p i {
+    display: none;
+  }
+}
+body .container-fluid .book #content p i:hover {
+  color: #63313B;
+  transform: scale(1.15);
+}
+body .container-fluid .book #content button {
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #7B3F4A;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-size: 0.85rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+@media only screen and (max-width: 767px) {
+  body .container-fluid .book #content button {
+    display: none;
+  }
+}
+body .container-fluid .book #content button:hover {
+  background-color: #63313B;
+  transform: translateY(-2px);
+}
+body .container-fluid .book #content button:focus {
+  outline: none;
+}/*# sourceMappingURL=style.css.map */
